@@ -1,0 +1,73 @@
+@import "../../variables";
+.gid-background {
+  background-image: linear-gradient(
+    to right bottom,
+    #3777ff,
+    #008bf3,
+    #0091c8,
+    #009091,
+    #008a64
+  );
+}
+//gid what we do
+.gid-wwd-lottie {
+  height: 350px;
+}
+.gid-wwd-lottie-xl {
+  height: 500px;
+}
+.gid-footer {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: $gid-blue;
+}
+.gid-wwd {
+  font-size: 18px;
+  color: $gid-black;
+  font-family: $font-family-sans-serif;
+  line-height: 2.5rem;
+}
+.about-text {
+  font-family: $font-family-sans-serif;
+  font-size: 20px;
+  line-height: 2.5rem;
+}
+.get-started {
+  border: 3px solid $gid-blue;
+  padding: 4px 2px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.gid-title {
+  letter-spacing: 8px;
+}
+.button {
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 10px 15px;
+  background-color: transparent;
+  border: 1.5px solid white;
+  text-decoration: none;
+  margin: 5px;
+  color: white;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.gid-standfor-icon {
+  font-size: 80px;
+  margin-bottom: 2rem;
+  color: $gid-blue;
+  margin-bottom: 2rem;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-bottom: 4px solid $gid-green;
+}
+.box-border {
+  flex-direction: column;
+  border: 3px solid $gid-blue;
+  border-radius: 8px;
+  height: 350px;
+  display: flex;
+}

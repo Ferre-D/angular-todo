@@ -1,0 +1,106 @@
+<div class="gid-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 py-5">
+        <h1 class="gid-title text-gid-white text-center text-uppercase mt-5">
+          <b>Get it done</b>
+        </h1>
+        <p class="text-gid-white p-4 about-text text-center">
+          <b>Get It Done</b> is a TODO-application created by Ferre Donné, a
+          student at Thomas More in Geel. <b>Get It Done</b> is designed to be a
+          simple but yet very effictive solution for a TODO-application.
+        </p>
+        <div class="text-center">
+          <a class="button">Get started</a>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <ng-lottie
+          [options]="banner"
+          (animationCreated)="animationCreated($event)"
+        ></ng-lottie>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 d-md-block gid-wwd-lottie">
+      <ng-lottie
+        [options]="manage"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
+    <div
+      class="
+        col-md-6 col-sm-12
+        text-center
+        d-flex
+        flex-column
+        justify-content-center
+      "
+    >
+      <h3>Manage your projects easily</h3>
+      <p class="gid-wwd">
+        <b>Get It Done</b> allows you to manage your projects easily. You can
+        create multiple states, assign deadlines, create subtasks and much more!
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 gid-wwd-lottie d-md-none d-xs-block">
+      <ng-lottie
+        [options]="phone"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
+    <div
+      class="
+        col-md-6 col-sm-12
+        text-center
+        d-flex
+        flex-column
+        justify-content-center
+      "
+    >
+      <h3>Anywhere, Anytime</h3>
+      <p class="gid-wwd">
+        You can use <b>Get It Done</b> anywhere. As long as you have your phone
+        with you, you'll have access to all of your projects.
+      </p>
+    </div>
+    <div class="col-md-6 gid-wwd-lottie d-md-block d-sm-none d-none">
+      <ng-lottie
+        [options]="phone"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 d-md-block gid-wwd-lottie-xl">
+      <ng-lottie
+        [options]="collab"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
+    <div
+      class="
+        col-md-6 col-sm-12
+        text-center
+        d-flex
+        flex-column
+        justify-content-center
+      "
+    >
+      <h3>Collaborate!</h3>
+      <p class="gid-wwd">
+        <b>Get It Done</b> makes it really easy to work together with your
+        colleagues. Just simply invite them to your project and you'll be able
+        to work together as if you were in the same room.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="gid-footer d-flex text-gid-white">
+  <div>&copy; Ferre Donné - r0784245</div>
+</div>
