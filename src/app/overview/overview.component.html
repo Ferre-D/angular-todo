@@ -1,0 +1,13 @@
+<div class="overview-div p-md-5 p-0">
+  <div class="container text-center">
+    <h2 class="text-white">Projects:</h2>
+    <app-project
+      *ngFor="let project of projects"
+      [project]="project"
+    ></app-project>
+    <div class="add-project">
+      <i class="new-project-icon fas fa-plus-square"></i>
+      <h3 class="new-project-title">Add new project</h3>
+    </div>
+  </div>
+</div>

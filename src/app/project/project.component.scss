@@ -1,0 +1,72 @@
+@import "../../variables";
+
+.project-box {
+  width: 75%;
+  padding: 10px;
+  border-radius: 11px;
+  background: $gid-white;
+  margin: 15px auto;
+  color: $gid-black;
+  -webkit-box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.62);
+  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.62);
+}
+.icons-button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  border: 2px solid $gid-blue;
+  border-radius: 8px;
+  padding: 2px 10px;
+}
+.icons-button * {
+  font-weight: bold;
+  font-size: 12px;
+}
+.icons-text {
+  font-size: 12px;
+}
+p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+.arrow {
+  font-size: 25px;
+  cursor: pointer;
+  color: $gid-blue;
+}
+.project-title {
+  border-bottom: 2px solid $gid-white;
+  margin: 8px 0;
+}
+.project-title * {
+  font-size: 1.5rem;
+}
+.project-banner-icon {
+  display: none !important;
+}
+@media screen and (min-width: 768px) {
+  .project-banner-icon {
+    display: block !important;
+  }
+
+  .project-box {
+    width: 65%;
+    margin: 30px auto;
+  }
+
+  .icons-button * {
+    font-size: 15px;
+  }
+  .icons-text {
+    font-size: 15px;
+  }
+
+  .project-icon {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 4.5rem;
+    border-right: 2px solid $gid-blue;
+    color: rgba($color: $gid-blue, $alpha: 0.4);
+  }
+}
