@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+
+$font-family-sans-serif: "Lato", sans-serif;
+
+$gid-blue: #3777ff;
+$gid-white: #fbfffe;
+$gid-black: #212227;
+$gid-yellow: #ffc65d;
+$gid-green: #008a64;
+$gid-blue-light: lighten($gid-blue, 35%);
+$gid-gray: #a7aabd;
+$gid-light: #dadce0;
+$theme-colors: (
+  "gid-blue": $gid-blue,
+  "gid-white": $gid-white,
+  "gid-black": $gid-black,
+  "gid-green": $gid-green,
+  "gid-blue-light": $gid-blue-light,
+  "gid-gray": $gid-gray,
+);
