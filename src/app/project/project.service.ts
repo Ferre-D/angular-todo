@@ -1,32 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Project } from './project';
+import { Todo } from '../project-detail/todo/todo';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectService {
-  private projects: Project[] = [];
-  constructor() {
-    let project1: Project = {
-      id: 1,
-      name: 'Angular TODO App',
-      teamId: 0,
-      createdAt: '22-12-2021',
-    };
-    let project2: Project = {
-      id: 2,
-      name: 'Flutter mobile development',
-      teamId: 0,
-      createdAt: '14-06-2022',
-    };
-    this.projects.push(project1);
-    this.projects.push(project2);
-  }
+  constructor(private httpClient: HttpClient) {}
 
-  getProjects(): Project[] {
-    return this.projects;
+  getProjects(): Observable<Project[]> {
+    return this.httpClient.get<Project[]>('http://localhost:3000/projects');
   }
-  getProjectById(id: number): Project | null {
-    return this.projects.find((project) => project.id === id) ?? null;
+  postProject(project: Project): Observable<Project> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.httpClient.post<Project>(
+      'http://localhost:3000/projects',
+      project,
+      { headers: headers }
+    );
+  }
+  deleteProject(id: number): Observable<Project> {
+    return this.httpClient.delete<Project>(
+      'http://localhost:3000/projects/' + id
+    );
   }
 }

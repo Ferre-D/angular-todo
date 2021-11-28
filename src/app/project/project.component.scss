@@ -44,6 +44,14 @@ p {
 .project-banner-icon {
   display: none !important;
 }
+.trash {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.2rem;
+  color: $gid-red;
+  cursor: pointer;
+}
 @media screen and (min-width: 768px) {
   .project-banner-icon {
     display: block !important;

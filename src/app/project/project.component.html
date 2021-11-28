@@ -1,26 +1,30 @@
 <div class="row project-box">
-  <div class="col-sm-4 project-banner-icon">
+  <div class="col-md-4 project-banner-icon">
     <div class="project-icon d-flex"><i class="fas fa-th-list"></i></div>
   </div>
-  <div class="col-sm-8">
+  <div class="col-sm-12 col-md-8">
+    <i (click)="delete(project.id)" class="fas fa-trash trash"></i>
+
     <div *ngIf="project">
       <div class="project-title text-center">
         <h3>{{ project.name }}</h3>
       </div>
       <div>
         <p class="icons-text text-left">
-          <i class="icons fas fa-users"></i><b> Contributors: 5</b>
-        </p>
-        <p class="icons-text text-left">
-          <i class="icons fas fa-tasks"></i><b> Tasks: 38</b>
+          <i class="icons fas fa-tasks"></i><b> Tasks: {{ tasks }}</b>
         </p>
         <p class="icons-text text-left">
           <i class="icons fas fa-calendar-alt"></i
           ><b> {{ project.createdAt }}</b>
         </p>
-        <div class="icons-button arrow">
+        <a
+          routerLink="/projects/{{ project.id }}"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="icons-button arrow"
+        >
           <p>Visit project <i class="fas fa-arrow-alt-circle-right"></i></p>
-        </div>
+        </a>
       </div>
     </div>
   </div>

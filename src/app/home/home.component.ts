@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
   phone: AnimationOptions = {
     path: '/assets/phone.json',
   };
-  collab: AnimationOptions = {
-    path: '/assets/collab.json',
+  color: AnimationOptions = {
+    path: '/assets/color.json',
   };
 
   animationCreated(animationItem: AnimationItem): void {

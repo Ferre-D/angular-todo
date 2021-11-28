@@ -1,0 +1,69 @@
+<div class="col-sm-12 todo" *ngIf="todo">
+  <div
+    class="todo-card row my-4 text-left p-md-4 pb-sm-4 p-sm-1 mx-auto d-flex"
+  >
+    <p
+      class="settings"
+      data-toggle="modal"
+      data-target="#newTodo"
+      (click)="editTodo(todo)"
+    >
+      <i class="far fa-edit"></i>
+    </p>
+    <p class="tag deadline-tag" *ngIf="todo.deadline">
+      <i class="fas fa-clock mr-1"></i> {{ todo.deadline }}
+    </p>
+    <p class="tag deadline-tag" *ngIf="!todo.deadline">
+      <i class="fas fa-clock mr-1"></i> No due date
+    </p>
+
+    <p class="tag todo-tag" *ngIf="todo.statusId == 1">
+      <i class="fas fa-question-circle mr-1"></i> To Do
+    </p>
+    <p class="tag done-tag" *ngIf="todo.statusId == 3">
+      <i class="fas fa-check-circle"></i> Done
+    </p>
+    <p class="tag doing-tag" *ngIf="todo.statusId == 2">
+      <i class="fas fa-wrench"></i> Doing
+    </p>
+
+    <div class="col-sm-12 col-md-6 py-3">
+      <h3 class="todo-title">{{ todo.title }}</h3>
+      <div class="subtask-div" *ngFor="let subtask of subtasks">
+        <app-subtask
+          (onChange)="onChangeSubtask()"
+          (onDelete)="onDelete()"
+          [subtask]="subtask"
+        ></app-subtask>
+      </div>
+      <form
+        [formGroup]="taskForm"
+        *ngIf="addTaskClicked"
+        class="d-flex align-items-center"
+      >
+        <input
+          type="text"
+          class="h-75 gid-add-task"
+          formControlName="title"
+        /><i
+          class="px-3 fas fa-check task-controls text-gid-green"
+          (click)="confirmTask()"
+        ></i
+        ><i
+          class="fas fa-times task-controls text-gid-red"
+          (click)="cancelTask()"
+        ></i>
+      </form>
+      <p class="add-task" (click)="addTask()">
+        <span><i class="far fa-plus-square"></i> Add sub task</span>
+      </p>
+    </div>
+    <div class="col-sm-12 col-md-6 mt-3 pr-5">
+      <span *ngIf="todo.comment">
+        <h3>Comment</h3>
+        {{ todo.comment }}
+      </span>
+    </div>
+    <div class="color col-sm-12" [style.backgroundColor]="todo.color"></div>
+  </div>
+</div>

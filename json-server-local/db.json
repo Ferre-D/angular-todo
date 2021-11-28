@@ -1,7 +1,99 @@
 {
-  "teams": [],
-  "members": [],
-  "projects": [],
-  "statuses": [],
-  "todos": []
+  "projects": [
+    {
+      "id": 1,
+      "name": "Angular TODO App",
+      "createdAt": "22-12-2021"
+    },
+    {
+      "id": 2,
+      "name": "Flutter mobile development",
+      "createdAt": "14-06-2022"
+    }
+  ],
+  "todos": [
+    {
+      "projectId": 1,
+      "statusId": "1",
+      "title": "Make Angular application",
+      "comment": "",
+      "deadline": "2021-12-12",
+      "color": "#f22b55",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "projectId": 1,
+      "statusId": 2,
+      "title": "Make React application",
+      "comment": "This application counts for 100% of the grade",
+      "deadline": "2021-11-12",
+      "color": "#ffc65d"
+    },
+    {
+      "id": 3,
+      "projectId": 1,
+      "statusId": 3,
+      "title": "Make Flutter application",
+      "comment": "",
+      "deadline": "2021-10-12",
+      "color": "#ffc65d"
+    }
+  ],
+  "subtasks": [
+    {
+      "id": 1,
+      "todoId": 1,
+      "title": "take train",
+      "done": true
+    },
+    {
+      "id": 2,
+      "todoId": 1,
+      "title": "don't buy beer",
+      "done": false
+    },
+    {
+      "todoId": 1,
+      "title": "test",
+      "done": true,
+      "id": 3
+    },
+    {
+      "todoId": 2,
+      "title": "test",
+      "done": false,
+      "id": 5
+    },
+    {
+      "todoId": 3,
+      "title": "api",
+      "done": true,
+      "id": 6
+    },
+    {
+      "todoId": 3,
+      "title": "layout",
+      "done": true,
+      "id": 7
+    },
+    {
+      "todoId": 3,
+      "title": "concept",
+      "done": true,
+      "id": 8
+    },
+    {
+      "todoId": 3,
+      "title": "DELETE ME",
+      "done": false,
+      "id": 9
+    },
+    {
+      "todoId": 5,
+      "title": "make presentation",
+      "done": true,
+      "id": 10
+    }
+  ]
 }

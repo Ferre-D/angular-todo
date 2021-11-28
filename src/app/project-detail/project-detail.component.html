@@ -3,158 +3,37 @@
     <a href="/">GET IT DONE</a>
   </div>
   <div class="row gid-filter">
-    <div class="col-sm-12 col-md-4 gid-statuses">
-      <div class="gid-status">To do (5)</div>
+    <div class="col-sm-12 col-md-3 gid-statuses">
+      <div class="gid-status" (click)="onlyShowTodo()">To do ({{ todo }})</div>
     </div>
-    <div class="col-sm-12 col-md-4 gid-statuses">
-      <div class="gid-status">Doing (14)</div>
+    <div class="col-sm-12 col-md-3 gid-statuses">
+      <div class="gid-status" (click)="onlyShowDoing()">
+        Doing ({{ doing }})
+      </div>
     </div>
-    <div class="col-sm-12 col-md-4 gid-statuses">
-      <div class="gid-status">Done (11)</div>
+    <div class="col-sm-12 col-md-3 gid-statuses">
+      <div class="gid-status" (click)="onlyShowDone()">Done ({{ done }})</div>
+    </div>
+    <div class="col-sm-12 col-md-3 gid-statuses">
+      <div class="gid-status" (click)="showAll()">All ({{ todos.length }})</div>
     </div>
   </div>
   <div class="todo-list container">
     <div class="row">
-      <div class="col-sm-12 todo">
-        <div
-          class="
-            todo-card
-            row
-            my-4
-            text-left
-            p-md-4
-            pt-sm-4
-            pb-sm-4
-            p-sm-1
-            mx-auto
-            d-flex
-          "
-        >
-          <p class="settings"><i class="fas fa-cog"></i></p>
-          <p class="tag deadline-tag">
-            <i class="fas fa-clock mr-1"></i> 22-12-2021
-          </p>
-
-          <p class="tag todo-tag">
-            <i class="fas fa-question-circle mr-1"></i> To Do
-          </p>
-          <div class="col-sm-12 col-md-6 py-3">
-            <h3 class="todo-title">Make todo application</h3>
-            <div class="subtask-div">
-              <div class="d-flex align-items-center">
-                <input type="checkbox" class="mr-2" name="itemID" id="itemID" />
-                <label for="itemID">Set up todo page</label>
-              </div>
-              <div class="d-flex align-items-center">
-                <input
-                  type="checkbox"
-                  class="mr-2"
-                  name="itemID2"
-                  id="itemID2"
-                />
-                <label for="itemID2">Make API</label>
-              </div>
-              <div class="d-flex align-items-center">
-                <input
-                  type="checkbox"
-                  class="mr-2"
-                  name="itemID3"
-                  id="itemID3"
-                />
-                <label for="itemID3">Get 20/20</label>
-              </div>
-            </div>
-            <a href=""><i class="far fa-plus-square"></i> Add sub task</a>
-          </div>
-          <div class="col-sm-12 col-md-6 mt-3 pr-5">
-            <h3>Comments</h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum enim
-            eaque sint omnis ab, distinctio illum culpa totam, natus excepturi
-            aliquam. Animi inventore enim repudiandae?
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-12 todo">
-        <div
-          class="
-            todo-card
-            row
-            my-4
-            text-left
-            p-md-4
-            pt-sm-4
-            pb-sm-4
-            p-sm-1
-            mx-auto
-            d-flex
-          "
-        >
-          <p class="settings"><i class="fas fa-cog"></i></p>
-          <p class="tag deadline-tag">
-            <i class="fas fa-clock mr-1"></i> 10-12-2021
-          </p>
-
-          <p class="tag done-tag"><i class="fas fa-check-circle"></i> Done</p>
-          <div class="col-sm-12 col-md-6 py-3">
-            <h3 class="todo-title">Go to angular convention</h3>
-            <div class="subtask-div">
-              <div class="d-flex align-items-center">
-                <input type="checkbox" class="mr-2" name="itemID" id="itemID" />
-                <label for="itemID">Take train</label>
-              </div>
-            </div>
-            <a href=""><i class="far fa-plus-square"></i> Add sub task</a>
-          </div>
-          <div class="col-sm-12 col-md-6 mt-3 pr-5"></div>
-        </div>
-      </div>
-      <div class="col-sm-12 todo">
-        <div
-          class="
-            todo-card
-            row
-            my-4
-            text-left
-            p-md-4
-            pt-sm-4
-            pb-sm-4
-            p-sm-1
-            mx-auto
-            d-flex
-          "
-        >
-          <p class="settings"><i class="fas fa-cog"></i></p>
-          <p class="tag deadline-tag">
-            <i class="fas fa-clock mr-1"></i> 22-12-2021
-          </p>
-
-          <p class="tag doing-tag"><i class="fas fa-wrench"></i> Doing</p>
-          <div class="col-sm-12 col-md-6 py-3">
-            <h3 class="todo-title">Don't drink</h3>
-            <div class="subtask-div">
-              <div class="d-flex align-items-center">
-                <input type="checkbox" class="mr-2" name="itemID" id="itemID" />
-                <label for="itemID">Don't buy beer</label>
-              </div>
-              <div class="d-flex align-items-center">
-                <input
-                  type="checkbox"
-                  class="mr-2"
-                  name="itemID2"
-                  id="itemID2"
-                />
-                <label for="itemID2" class="done">Don't go to parties</label>
-              </div>
-            </div>
-            <a href=""><i class="far fa-plus-square"></i> Add sub task</a>
-          </div>
-          <div class="col-sm-12 col-md-6 mt-3 pr-5"></div>
-        </div>
-      </div>
+      <app-todo
+        cdkDrag
+        (putTodo)="putTodo(todo)"
+        class="w-100"
+        *ngFor="let todo of todos"
+        [todo]="todo"
+      ></app-todo>
       <div class="new-todo col-sm-12">
         <div
+          (click)="resetModal()"
+          data-toggle="modal"
+          data-target="#newTodo"
           class="
-            new-todo-card
+            new-todo
             todo-card
             row
             my-4
@@ -174,6 +53,101 @@
           <h3 class="text-gid-blue"><b>New Todo</b></h3>
           <div><i class="fas fa-plus-circle fa-2x text-gid-blue"></i></div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="newTodo"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="newTodoLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newTodoLabel">New todo</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" [formGroup]="todoForm">
+          <div class="form-group">
+            <label for="name">Title <sup class="text-gid-red">*</sup></label>
+            <input
+              required
+              id="title"
+              name="title"
+              placeholder="Title"
+              formControlName="title"
+              minlength="2"
+              maxlength="45"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select
+              formControlName="statusId"
+              name="status"
+              id="status"
+              class="form-control"
+            >
+              <option value="1">To Do</option>
+              <option value="2">Doing</option>
+              <option value="3">Done</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="deadline">Deadline</label>
+            <input
+              id="deadline"
+              name="deadline"
+              type="date"
+              placeholder="Deadline"
+              formControlName="deadline"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea
+              rows="3"
+              id="comment"
+              name="comment"
+              placeholder="Comment"
+              formControlName="comment"
+              minlength="2"
+              maxlength="150"
+              class="form-control"
+            ></textarea>
+          </div>
+          <div>
+            <ngx-colors
+              [(ngModel)]="color"
+              ngx-colors-trigger
+              style="display: inline-block; margin: 5px"
+              formControlName="color"
+            ></ngx-colors>
+          </div>
+          <button
+            [disabled]="!todoForm.valid"
+            type="submit"
+            (click)="onSubmit()"
+            data-dismiss="modal"
+            class="btn btn-gid-blue"
+          >
+            Save todo
+          </button>
+        </form>
       </div>
     </div>
   </div>

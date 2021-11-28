@@ -1,0 +1,131 @@
+@import "../../../variables";
+.gid-navbar {
+  border-bottom: 1px solid $gid-light;
+  padding: 4px 2.5rem;
+  a {
+    color: $gid-blue;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+.gid-filter {
+  background-color: $gid-blue;
+  border-radius: 8px;
+  margin: 1rem 0.45rem;
+  > * {
+    padding: 0.3rem;
+  }
+}
+.gid-status {
+  color: $gid-black;
+  background-color: $gid-white;
+  border-radius: 2rem;
+  width: 40%;
+  text-align: center;
+  margin: 0.2rem auto;
+}
+.todo-card {
+  color: black;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 7px 1px #777777;
+  box-shadow: 0px 0px 7px 1px #777777;
+}
+
+.tag {
+  padding: 1px 7px;
+  margin: 0;
+  position: absolute;
+  border-radius: 5px;
+  font-weight: bold;
+  z-index: 1;
+}
+.todo-tag {
+  background-color: $gid-blue;
+  color: $gid-white;
+  transform: translateY(-18px);
+}
+.doing-tag {
+  background-color: $gid-yellow;
+  color: $gid-white;
+  transform: translateY(-18px);
+}
+.done-tag {
+  background-color: $gid-green;
+  color: $gid-white;
+  transform: translateY(-18px);
+}
+.deadline-tag {
+  color: $gid-white;
+  background-color: grey;
+  transform: translate(100px, -18px);
+}
+.gid-add-task {
+  border-radius: 3px;
+  border: 1px solid $gid-black;
+}
+.task-controls {
+  cursor: pointer !important;
+  z-index: 2;
+}
+.todo-title {
+  font-size: 1.1rem;
+  color: $gid-blue;
+}
+.settings {
+  margin: 0;
+  cursor: pointer;
+  font-size: 1.6rem;
+  position: absolute;
+  top: 2rem;
+  color: $gid-blue;
+  right: 2rem;
+}
+.add-task {
+  color: $gid-blue;
+  cursor: pointer;
+  :hover {
+    text-decoration: underline;
+  }
+}
+.showOptions {
+  cursor: pointer;
+}
+.color {
+  height: 4px;
+  border-radius: 8px;
+  width: 75%;
+  margin: 0px auto 8px auto;
+}
+@media screen and (min-width: 768px) {
+  .color {
+    width: 100%;
+    margin: 0;
+  }
+  .gid-status {
+    width: 40%;
+  }
+  .todo-title {
+    font-size: 1.8rem;
+  }
+  .deadline-tag {
+    transform: translate(200px, -38px);
+  }
+  .todo-tag {
+    transform: translateY(-38px);
+  }
+  .doing-tag {
+    transform: translateY(-38px);
+  }
+  .done-tag {
+    transform: translateY(-38px);
+  }
+  .todo-card {
+    width: 75%;
+    position: relative;
+  }
+  .settings {
+    top: 1rem;
+    right: 1rem;
+  }
+}

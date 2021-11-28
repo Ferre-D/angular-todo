@@ -11,11 +11,14 @@ $gid-green: #008a64;
 $gid-blue-light: lighten($gid-blue, 35%);
 $gid-gray: #a7aabd;
 $gid-light: #dadce0;
+$gid-red: #f22b55;
 $theme-colors: (
   "gid-blue": $gid-blue,
+  "gid-yellow": $gid-yellow,
   "gid-white": $gid-white,
   "gid-black": $gid-black,
   "gid-green": $gid-green,
   "gid-blue-light": $gid-blue-light,
   "gid-gray": $gid-gray,
+  "gid-red": $gid-red,
 );

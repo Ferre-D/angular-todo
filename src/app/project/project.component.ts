@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TodoService } from '../project-detail/todo/todo.service';
 import { Project } from './project';
+import { ProjectService } from './project.service';
 
 @Component({
   selector: 'app-project',
@@ -7,9 +9,30 @@ import { Project } from './project';
   styleUrls: ['./project.component.scss'],
 })
 export class ProjectComponent implements OnInit {
-  @Input() project: Project = { id: 0, name: '', createdAt: '', teamId: 0 };
+  @Input() project: Project = { id: 0, name: '', createdAt: '' };
+  @Output() onDelete: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
+  constructor(
+    private todoService: TodoService,
+    private projectService: ProjectService
+  ) {}
+  tasks: number = 0;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.todoService
+      .getTodos(this.project.id)
+      .subscribe((result) => (this.tasks = result.length));
+  }
+  delete(id: number): void {
+    this.projectService.deleteProject(id).subscribe(
+      (result) => {
+        this.onDelete.emit();
+      },
+      (error) => {
+        //error
+        alert(error);
+      }
+    );
+    this.onDelete;
+  }
 }
