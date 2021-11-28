@@ -19,7 +19,8 @@
       "comment": "",
       "deadline": "2021-12-12",
       "color": "#f22b55",
-      "id": 1
+      "id": 1,
+      "order": 0
     },
     {
       "projectId": 1,
@@ -28,7 +29,8 @@
       "comment": "",
       "deadline": "2021-10-12",
       "color": "#ffc65d",
-      "id": 3
+      "id": 3,
+      "order": 1
     }
   ],
   "subtasks": [

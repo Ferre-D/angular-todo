@@ -29,8 +29,9 @@
 
     <div class="col-sm-12 col-md-6 py-3">
       <h3 class="todo-title">{{ todo.title }}</h3>
-      <div class="subtask-div" *ngFor="let subtask of subtasks">
+      <div class="subtask-div">
         <app-subtask
+          *ngFor="let subtask of subtasks"
           (onChange)="onChangeSubtask()"
           (onDelete)="onDelete()"
           [subtask]="subtask"
