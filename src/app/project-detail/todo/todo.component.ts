@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subtask } from './subtask';
 import { SubtaskService } from './subtask/subtask.service';
 import { Todo } from './todo';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-todo',
@@ -18,6 +19,7 @@ export class TodoComponent implements OnInit {
     deadline: '',
     comment: '',
     color: '',
+    order: 0,
   };
   @Output() putTodo: EventEmitter<any> = new EventEmitter();
 
@@ -29,10 +31,13 @@ export class TodoComponent implements OnInit {
     done: new FormControl(false),
   });
   constructor(private subtaskService: SubtaskService) {}
-  onDelete() {
+  onDelete(): void {
     this.subtaskService.getSubtasks(this.todo.id).subscribe((result) => {
       this.subtasks = result;
     });
+  }
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.subtasks, event.previousIndex, event.currentIndex);
   }
   onChangeSubtask(): void {
     this.subtaskService.getSubtasks(this.todo.id).subscribe((result) => {

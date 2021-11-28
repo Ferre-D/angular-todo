@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -99,6 +100,16 @@ export class ProjectDetailComponent implements OnInit {
 
     this.isEdit = false;
   }
+  todoOrder: Todo = {
+    id: 0,
+    title: '',
+    deadline: '',
+    projectId: 0,
+    order: this.todos.length,
+    color: '',
+    statusId: 0,
+    comment: '',
+  };
   todoForm = new FormGroup({
     projectId: new FormControl(this.route.snapshot.paramMap.get('id')),
     statusId: new FormControl(1),
@@ -109,6 +120,7 @@ export class ProjectDetailComponent implements OnInit {
     ]),
     deadline: new FormControl(''),
     color: new FormControl(''),
+    order: new FormControl(this.todos.length),
   });
   resetModal() {
     this.isEdit = false;
@@ -119,6 +131,7 @@ export class ProjectDetailComponent implements OnInit {
       comment: '',
       deadline: '',
       color: '#3777ff',
+      order: this.todos.length,
     });
   }
   deleteTodo() {
@@ -138,6 +151,18 @@ export class ProjectDetailComponent implements OnInit {
               else if (r.statusId == 2) this.doing++;
               else if (r.statusId == 3) this.done++;
             });
+            result.map((todo) => {
+              this.todoOrder = todo;
+              this.todoOrder.order = this.order;
+              this.order++;
+              this.todoService.putTodo(this.todoOrder, todo.id).subscribe(
+                (result) => {},
+                (error) => {
+                  alert(error.message);
+                }
+              );
+            });
+            this.order = 0;
           });
         }
       },
@@ -145,6 +170,22 @@ export class ProjectDetailComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+  order: number = 0;
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
+    this.todos.map((todo) => {
+      this.todoOrder = todo;
+      this.todoOrder.order = this.order;
+      this.order++;
+      this.todoService.putTodo(this.todoOrder, todo.id).subscribe(
+        (result) => {},
+        (error) => {
+          alert(error);
+        }
+      );
+    });
+    this.order = 0;
   }
   putTodo(todoTemp: Todo): void {
     this.editTodoId = todoTemp.id;
@@ -156,6 +197,7 @@ export class ProjectDetailComponent implements OnInit {
       comment: todoTemp.comment,
       deadline: todoTemp.deadline,
       color: todoTemp.color,
+      order: this.todos.length,
     });
   }
   onlyShowTodo(): void {

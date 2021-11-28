@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="todo-list container">
-    <div class="row">
+    <div class="row" cdkDropList (cdkDropListDropped)="drop($event)">
       <app-todo
         cdkDrag
         (putTodo)="putTodo(todo)"
@@ -80,6 +80,7 @@
       </div>
       <div class="modal-body">
         <form action="" [formGroup]="todoForm">
+          <input type="hidden" formControlName="order" />
           <div class="form-group">
             <label for="name">Title <sup class="text-gid-red">*</sup></label>
             <input

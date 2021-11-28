@@ -6,4 +6,5 @@ export interface Todo {
   comment: string;
   deadline: string;
   color: string;
+  order: number;
 }

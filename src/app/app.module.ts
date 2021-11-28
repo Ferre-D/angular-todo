@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubtaskComponent } from './project-detail/todo/subtask/subtask.component';
 import { NgxColorsModule } from 'ngx-colors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 export function playerFactory() {
   return player;
@@ -33,6 +34,7 @@ export function playerFactory() {
     SubtaskComponent,
   ],
   imports: [
+    DragDropModule,
     BrowserAnimationsModule,
     NgxColorsModule,
     FormsModule,

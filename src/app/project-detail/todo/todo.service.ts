@@ -11,7 +11,9 @@ export class TodoService {
   constructor(private httpClient: HttpClient) {}
   getTodos(id: number): Observable<Todo[]> {
     return this.httpClient.get<Todo[]>(
-      'http://localhost:3000/todos?projectId_like=' + id
+      'http://localhost:3000/todos?projectId_like=' +
+        id +
+        '&_sort=order,deadline&_order=asc,asc'
     );
   }
   postTodo(todo: Todo): Observable<Todo> {
