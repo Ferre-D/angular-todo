@@ -1,0 +1,43 @@
+@import "../../../../variables";
+.done {
+  position: relative;
+}
+.done::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: black;
+  animation-name: strike;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes strike {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+label {
+  margin: 0;
+}
+.deleteTask {
+  font-size: 0.8rem;
+  padding-left: 0.4rem;
+  color: $gid-red;
+  cursor: pointer;
+}
+@keyframes finish {
+  from {
+    text-decoration: none;
+  }
+  to {
+    text-decoration: line-through;
+  }
+}
