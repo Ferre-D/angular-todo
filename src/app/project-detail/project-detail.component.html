@@ -15,7 +15,9 @@
       <div class="gid-status" (click)="onlyShowDone()">Done ({{ done }})</div>
     </div>
     <div class="col-sm-12 col-md-3 gid-statuses">
-      <div class="gid-status" (click)="showAll()">All ({{ todos.length }})</div>
+      <div class="gid-status" (click)="showAll()">
+        All ({{ todosFilterReset.length }})
+      </div>
     </div>
   </div>
   <div class="todo-list container">
