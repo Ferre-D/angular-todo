@@ -1,0 +1,26 @@
+<div class="d-flex align-items-center">
+  <input
+    (change)="updateTask()"
+    *ngIf="isChecked"
+    checked
+    type="checkbox"
+    class="mr-2"
+    name="subtask{{ subtask.id }}"
+    id="subtask{{ subtask.id }}"
+  />
+  <input
+    (change)="updateTask()"
+    *ngIf="!isChecked"
+    type="checkbox"
+    class="mr-2"
+    name="subtask{{ subtask.id }}"
+    id="subtask{{ subtask.id }}"
+  />
+  <label *ngIf="isChecked" for="subtask{{ subtask.id }}" class="done">{{
+    subtask.title
+  }}</label>
+  <label *ngIf="!isChecked" for="subtask{{ subtask.id }}">{{
+    subtask.title
+  }}</label>
+  <i (click)="deleteTask()" class="fas fa-times deleteTask"></i>
+</div>
