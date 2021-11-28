@@ -30,4 +30,7 @@ export class TodoService {
       { headers: headers }
     );
   }
+  deleteTodo(id: number): Observable<Todo> {
+    return this.httpClient.delete<Todo>('http://localhost:3000/todos/' + id);
+  }
 }

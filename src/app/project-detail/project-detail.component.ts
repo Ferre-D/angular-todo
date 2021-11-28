@@ -121,6 +121,31 @@ export class ProjectDetailComponent implements OnInit {
       color: '#3777ff',
     });
   }
+  deleteTodo() {
+    this.todoService.deleteTodo(this.editTodoId).subscribe(
+      (result) => {
+        const projectId = this.route.snapshot.paramMap.get('id');
+
+        if (projectId != null) {
+          this.todo = 0;
+          this.doing = 0;
+          this.done = 0;
+          this.todoService.getTodos(+projectId).subscribe((result) => {
+            this.todos = result;
+            this.todosFilterReset = this.todos;
+            result.map((r) => {
+              if (r.statusId == 1) this.todo++;
+              else if (r.statusId == 2) this.doing++;
+              else if (r.statusId == 3) this.done++;
+            });
+          });
+        }
+      },
+      (error) => {
+        alert(error.message);
+      }
+    );
+  }
   putTodo(todoTemp: Todo): void {
     this.editTodoId = todoTemp.id;
     this.isEdit = true;

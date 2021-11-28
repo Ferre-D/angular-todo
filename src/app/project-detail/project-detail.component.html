@@ -147,6 +147,14 @@
           >
             Save todo
           </button>
+          <button
+            data-dismiss="modal"
+            (click)="deleteTodo()"
+            *ngIf="isEdit"
+            class="btn btn-gid-red ml-2"
+          >
+            Delete todo
+          </button>
         </form>
       </div>
     </div>
