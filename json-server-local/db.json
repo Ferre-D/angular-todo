@@ -9,6 +9,11 @@
       "id": 2,
       "name": "Flutter mobile development",
       "createdAt": "14-06-2022"
+    },
+    {
+      "name": "work",
+      "createdAt": "28-11-2021",
+      "id": 3
     }
   ],
   "todos": [
@@ -18,9 +23,9 @@
       "title": "Make Angular application",
       "comment": "",
       "deadline": "2021-12-12",
-      "color": "#f22b55",
-      "id": 1,
-      "order": 0
+      "color": "#58202c",
+      "order": 4,
+      "id": 1
     },
     {
       "projectId": 1,
@@ -30,7 +35,37 @@
       "deadline": "2021-10-12",
       "color": "#ffc65d",
       "id": 3,
-      "order": 1
+      "order": 0
+    },
+    {
+      "projectId": "2",
+      "statusId": "2",
+      "title": "Meeting",
+      "comment": "Time: 14h30",
+      "deadline": "2021-11-04",
+      "color": "#f4511e",
+      "order": 0,
+      "id": 5
+    },
+    {
+      "projectId": "1",
+      "statusId": 1,
+      "title": "todo",
+      "comment": "",
+      "deadline": "",
+      "color": "#3777ff",
+      "order": 2,
+      "id": 7
+    },
+    {
+      "projectId": "1",
+      "statusId": "2",
+      "title": "doing",
+      "comment": "",
+      "deadline": "",
+      "color": "#3777ff",
+      "order": 3,
+      "id": 8
     }
   ],
   "subtasks": [
@@ -71,10 +106,22 @@
       "id": 8
     },
     {
-      "todoId": 3,
-      "title": "DELETE ME",
+      "todoId": 5,
+      "title": "make presentation",
       "done": false,
-      "id": 9
+      "id": 10
+    },
+    {
+      "todoId": 6,
+      "title": "make coffee",
+      "done": true,
+      "id": 11
+    },
+    {
+      "todoId": 6,
+      "title": "make presentation",
+      "done": false,
+      "id": 12
     }
   ]
 }
